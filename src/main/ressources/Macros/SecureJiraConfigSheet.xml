@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xwikidoc>
+<web>Macros</web>
+<name>SecureJiraConfigSheet</name>
+<language></language>
+<defaultLanguage></defaultLanguage>
+<translation>0</translation>
+<parent></parent>
+<creator>xwiki:XWiki.aroger</creator>
+<author>xwiki:XWiki.aroger</author>
+<customClass></customClass>
+<contentAuthor>xwiki:XWiki.aroger</contentAuthor>
+<creationDate>1412935417000</creationDate>
+<date>1413378945000</date>
+<contentUpdateDate>1413378945000</contentUpdateDate>
+<version>8.12</version>
+<title></title>
+<defaultTemplate></defaultTemplate>
+<validationScript></validationScript>
+<comment></comment>
+<minorEdit>true</minorEdit>
+<syntaxId>xwiki/2.1</syntaxId>
+<hidden>false</hidden>
+<content>{{velocity}}
+  #set ($redirect = $xwiki.relativeRequestURL)
+  #set ($saveaction = 'save')
+  #set($mydoc = $xwiki.getDocument('Macros.SecureJiraConfig'))
+  {{html clean="false"}}
+  &lt;form id="update" method="post" action="$mydoc.getURL("save", "xredirect=$escapetool.url(${redirect})")" class="withLock"&gt;
+  &lt;input type="hidden" name="form_token" value="$!{services.csrf.getToken()}" /&gt;
+  {{/html}}
+    |=$msg.get('securejira.user')       |=$msg.get('securejira.password')       |=URL       |=$msg.get('securejira.del')
+  #foreach($objme in $mydoc.getObjects('Macros.SecureJiraConfigClass'))
+  #set($delete_url = $mydoc.getURL('objectremove', "form_token=$!{services.csrf.getToken()}&amp;classname=${escapetool.url('Macros.SecureJiraConfigClass')}&amp;classid=${objme.number}&amp;xredirect=${escapetool.url($redirect)}"))
+  |=$objme.display('username', 'edit') |=$objme.display('password', 'edit') |=$objme.display('url', 'edit') |=[[image:icon:cross&gt;&gt;path:$delete_url]]
+  #end
+
+  {{html clean="false"}}
+  &lt;br /&gt;
+  &lt;input type="submit" value="$msg.get('securejira.save')" class="button" /&gt;
+  &lt;/form&gt;
+  &lt;br /&gt;
+  &lt;div class="buttonwrapper"&gt;
+  &lt;a href="$mydoc.getURL('edit', "xpage=editobject&amp;amp;xaction=addObject&amp;amp;className=$escapetool.url('Macros.SecureJiraConfigClass')&amp;amp;xredirect=$escapetool.url(${redirect})")" class="xobject-add-control"&gt;$msg.get('securejira.newfield')&lt;/a&gt;
+  &lt;/div&gt;
+  {{/html}}
+
+{{/velocity}}</content></xwikidoc>
