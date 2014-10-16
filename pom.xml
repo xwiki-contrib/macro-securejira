@@ -32,8 +32,8 @@
   <groupId>org.xwiki.contrib</groupId>
   <artifactId>macro-securejira</artifactId>
   <packaging>xar</packaging>
-  <name>Secure Jira</name>
-  <version>0.1</version>
+  <name>Macro Secure Jira</name>
+  <version>1.0</version>
   <description>Jira macro working with user authentication</description>
   <developers>
     <developer>
@@ -43,41 +43,19 @@
       <name>Ludovic Dubost</name>
     </developer>
   </developers>
-  <issueManagement>
-    <system>jira</system>
-    <url>http://jira.xwiki.org/browse/XVIDEO</url>
-  </issueManagement>
   <scm>
     <connection>scm:git:git://github.com/xwiki-contrib/macro-securejira.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/macro-securejira.git</developerConnection>
     <url>https://github.com/xwiki-contrib/macro-securejira</url>
     <tag>HEAD</tag>
   </scm>
-  <properties>
-    <platform.version>${commons.version}</platform.version>
-    <!-- Don't run CLIRR here since there's no Java code. -->
-    <xwiki.clirr.skip>true</xwiki.clirr.skip>
-  </properties>
-  <dependencies>
-    <dependency>
-      <groupId>org.xwiki.platform</groupId>
-      <artifactId>xwiki-platform-rendering-macro-velocity</artifactId>
-      <version>${platform.version}</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.platform</groupId>
-      <artifactId>xwiki-platform-rendering-macro-code</artifactId>
-      <version>${platform.version}</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.xwiki.rendering</groupId>
-      <artifactId>xwiki-rendering-macro-html</artifactId>
-      <version>${platform.version}</version>
-      <scope>runtime</scope>
-    </dependency>
-  </dependencies>
+  <distributionManagement>
+    <repository>
+      <id>xwiki-staging</id>
+      <name>XWiki Staging Repository</name>
+      <url>http://nexus.xwiki.org/nexus/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
   <build>
     <!-- Needed to add support for the XAR packaging -->
     <extensions>
