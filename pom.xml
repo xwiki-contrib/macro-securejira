@@ -33,7 +33,7 @@
   <artifactId>macro-securejira</artifactId>
   <packaging>xar</packaging>
   <name>Macro Secure Jira</name>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <description>Jira macro working with user authentication</description>
   <developers>
     <developer>
