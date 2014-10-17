@@ -33,7 +33,7 @@
   <artifactId>macro-securejira</artifactId>
   <packaging>xar</packaging>
   <name>Macro Secure Jira</name>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <description>Jira macro working with user authentication</description>
   <developers>
     <developer>
@@ -47,7 +47,7 @@
     <connection>scm:git:git://github.com/xwiki-contrib/macro-securejira.git</connection>
     <developerConnection>scm:git:git@github.com:xwiki-contrib/macro-securejira.git</developerConnection>
     <url>https://github.com/xwiki-contrib/macro-securejira</url>
-    <tag>HEAD</tag>
+    <tag>macro-securejira-1.0</tag>
   </scm>
   <distributionManagement>
     <repository>
