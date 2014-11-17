@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
  * See the NOTICE file distributed with this work for additional
  * information regarding copyright ownership.
@@ -31,9 +30,9 @@
   <author>xwiki:XWiki.Admin</author>
   <customClass/>
   <contentAuthor>xwiki:XWiki.Admin</contentAuthor>
-  <creationDate>1412859219000</creationDate>
-  <date>1413379649000</date>
-  <contentUpdateDate>1413189683000</contentUpdateDate>
+  <creationDate>1388527200000</creationDate>
+  <date>1388527200000</date>
+  <contentUpdateDate>1388527200000</contentUpdateDate>
   <version>1.1</version>
   <title>SecureJira</title>
   <defaultTemplate/>
@@ -136,7 +135,7 @@
         <separators>|</separators>
         <size>1</size>
         <unmodifiable>0</unmodifiable>
-        <values>Mandatory|Optional|No content</values>
+        <values>Optional|Mandatory|No content</values>
         <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
       </contentType>
       <defaultCategory>
@@ -239,7 +238,8 @@ else {
 }
 
 def passobj = passdoc.getObject("Macros.SecureJiraConfigClass", "url", jiraURLMacroParameter, false)
-passdoc.use(passobj)
+if(passobj)
+  passdoc.use(passobj)
 jiraPassword = (passobj==null) ? null : passobj.getProperty("password").getBaseProperty().getValue()
 jiraUsername = passdoc.getValue("username")
 
